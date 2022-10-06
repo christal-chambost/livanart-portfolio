@@ -1,33 +1,35 @@
-import React, { useEffect } from 'react';
+import React, { useRef } from 'react';
 import {
     Link,
     useLocation,
 } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import './header.css';
+import './header.scss';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Button, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Tab, Tabs, Toolbar, Typography } from '@mui/material';
-
-interface Props {
-    /**
-     * Injected by the documentation to work in an iframe.
-     * You won't need it on your project.
-     */
-    window?: () => Window;
-}
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
 
 const drawerWidth = 240;
 
-function Header(props: Props) {
-    const { window } = props;
+function Header() {
+
     const location = useLocation();
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
+    const parallax = useRef<IParallax>(null);
 
+    const scroll = (to: number) => {
+        if (parallax.current) {
+            parallax.current.scrollTo(to)
+        }
+    }
+
+    // menu on mobile
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
             <Typography variant="h6" sx={{ my: 2 }}>
@@ -49,6 +51,7 @@ function Header(props: Props) {
                     <ListItemButton
                         component={Link}
                         to="/about"
+                        onClick={() => scroll(1)}
                         selected={location.pathname === "/about"}
                         sx={{ textAlign: 'center' }}>
                         <ListItemText primary="About" />
@@ -82,10 +85,9 @@ function Header(props: Props) {
         setValue(newValue);
     };
 
-    const container = window !== undefined ? () => window().document.body : undefined;
-
     return (
         <header className="navbar">
+            <div className="navbar-blur"></div>
             <Box sx={{ display: 'flex' }}>
                 <AppBar>
                     <Toolbar>
@@ -112,17 +114,21 @@ function Header(props: Props) {
                                 textColor="primary"
                                 indicatorColor="primary"
                                 aria-label="Tabs where each tab needs to be selected manually"
+                                style={{ position: "relative" }}
                             >
-                                <Tab value="shop" label="Shop" component={Link} to="/shop" disabled />
+                                <Tab className="comingsoon" value="shop" label="Shop" component={Link} to="/shop" disabled />
                                 <Tab value="about" label="About me" component={Link} to="/about" />
                                 <Tab value="workshop" label="Workshop" component={Link} to="/workshop" />
+                                <Tab value="contact" label="Contact" component={Link} to="/contact" />
+                                <IconButton aria-label="cart shop" size="large" component={Link} to="/">
+                                    <ShoppingCartIcon />
+                                </IconButton>
                             </Tabs>
                         </Box>
                     </Toolbar>
                 </AppBar>
                 <Box component="nav">
                     <Drawer
-                        container={container}
                         variant="temporary"
                         open={mobileOpen}
                         onClose={handleDrawerToggle}
