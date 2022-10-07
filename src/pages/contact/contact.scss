@@ -1,0 +1,29 @@
+.contactpage {
+    position: relative;
+    color: white;
+
+    
+    &-bg {
+
+     /* Set rules to fill background */
+        min-height: 100%;
+        min-width: 700px;
+                    
+     /* Set up proportionate scaling */
+        width: 50%;
+        height: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        z-index: -1;
+        margin-bottom: 5em;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+
+    }
+}
