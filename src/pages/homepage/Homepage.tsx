@@ -4,7 +4,6 @@ import bg2 from './../../assets/images/bg-livanart2.png';
 import bg3 from './../../assets/images/bg-livanart3.jpg';
 import bg4 from './../../assets/images/bg-livanart4.jpg';
 import { useSpring, animated } from 'react-spring';
-import { useTransition } from '@react-spring/web'
 import Typography from '@mui/material/Typography';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 
@@ -15,7 +14,7 @@ function Homepage() {
     const slides = [bg1, bg2, bg3, bg4];
     const randomIndex = Math.floor(Math.random() * slides.length);
     const propsBackground = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } })
-    const propsTitle = useSpring({ to: { opacity: 1 }, from: { opacity: 0 }, config: { duration: 5000 } })
+    const propsTitle = useSpring({ to: { opacity: 1 }, from: { opacity: 0 }, config: { duration: 2000 } })
 
     return (
         <section className="homepage">
