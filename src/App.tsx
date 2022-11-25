@@ -12,7 +12,6 @@ import Header from './components/Header';
 import Contact from './pages/contact';
 import Workshop from './pages/workshop';
 import Footer from './components/Footer';
-import SpeedDialMedia from './components/SpeedDialMedia';
 import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
 
 function App() {
@@ -29,7 +28,6 @@ function App() {
           <Route path="/workshop" element={<Workshop />} />
           <Route path="/" element={<Homepage />} />
         </Routes>
-        <SpeedDialMedia />
         <Footer />
       </Router>
     </div>

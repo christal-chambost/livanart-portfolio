@@ -84,10 +84,10 @@ function Header() {
     const handleChange = (event: React.SyntheticEvent, newValue: string) => {
         setValue(newValue);
     };
-
+    // <div className="navbar-blur"></div>
     return (
         <header className="navbar">
-            <div className="navbar-blur"></div>
+
             <Box sx={{ display: 'flex' }}>
                 <AppBar>
                     <Toolbar>
