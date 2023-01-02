@@ -1,69 +1,368 @@
 .homepage {
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgba(255, 255, 255, 1);
 
-  color: white;
+  ul {
+    list-style-type: none;
+    opacity: 0.9;
 
-    .bg-img {
-        /* Set rules to fill background */
-        min-height: 100%;
-        min-width: 1800px;
-            
-        /* Set up proportionate scaling */
-        width: 100%;
-        height: auto;
-            
-        /* Set up positioning */
-        position: fixed;
-        top: 0;
-        left: 0;
-
-        z-index: -1;
-        transition: all 0.5s ease-in-out;
+      li {
+        padding: 0.2em;
+      }
     }
 
-    &-content {
-      cursor: default;
-      width: 100%;
+  &-header {
+    height: 100%;
+    width: 100%;
+    background-image:url('./../../assets/images/bg-livanart2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 
-      &-p1 {
+    text-transform: uppercase;
+
+    &-part1 {
+
+      &-content {
+        height: auto;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        margin-left: 40px;
+        justify-content: space-between;
+        padding: 3em;
 
-        h1 { margin-bottom : 0 }
-
-        p {
-          width: 50%;
+        &-logo {
+          width: 60px;
+          height: auto;
         }
+
+        &-social {
+          text-align: right;
+          font-size: 12px;
+
+          ul > li > a {
+            box-shadow: inset 0 0 0 0 #848787;
+            transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+            padding: 0 .25rem;
+            margin: 0 -.25rem;
+          }
+          ul > li > a:hover {
+            color: rgb(56, 45, 45);
+            box-shadow: inset 200px 0 0 0 #f9f9f9;;
+          }
+
+          span {
+            opacity: 0.7;
+            cursor: default;
+          }
+        }
+      }
+    }
+
+    &-part2 {
+      width: 100%;
+      height: auto;
+      cursor: default;
+
+      h1{
+        padding-left: 3rem;
+        font-family: 'Roboto', sans-serif;
+        font-size: 3.5em;
+        position: relative;
+        -o-animation: opacityK 0.5s 0.5s ease both;
+        -moz-animation: opacityK 0.5s 0.5s ease both;
+        -webkit-animation: opacityK 0.5s 0.5s ease both;
+        animation: opacityK 0.5s 0.5s ease both;
+      }
+
+      h1:after {
+        content: 'french cosplayer & maker';
+        position: absolute;
+        left: 0;
+        top: 50px;
+        font-weight: 300;
+        font-style: italic;
+        font-size: 1.7rem;
+        -o-animation: opacityK 1s 1s ease both, transformK 1s 1s ease both;
+        -moz-animation: opacityK 1s 1s ease both, transformK 1s 1s ease both;
+        -webkit-animation: opacityK 1s 1s ease both, transformK 1s 1s ease both;
+        animation: opacityK 1s 1s ease both, transformK 1s 1s ease both;
       }
 
       &-arrow {
-        text-align: center;
-      }
-
-      &-gradient {
-        background: #000000;  /* fallback for old browsers */
-        background: -webkit-linear-gradient(to bottom, #272727, #000000);  /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to bottom, #272727, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        opacity: 0.5;
-      }
-    }
-
-    @media screen and (max-width: 990px) { /* Specific to this particular image */
-      .bg-img {
+        position: absolute;
         left: 50%;
-        margin-left: -950px;
-        min-height: 100px;
+        bottom: 20px;
+        margin: 0 auto;
+        transform: rotate(90deg), translate(-50%, -50%);
+        -o-animation: scrollArrow 1.5s infinite;
+        -moz-animation: scrollArrow 1.5s infinite;
+        -webkit-animation: scrollArrow 1.5s infinite;
+        animation: scrollArrow 1.5s infinite;
+      }
+    }
+  }
+
+  &-intro {
+    width: 100%;
+    height: 70vh;
+    background-color: #42212b;
+    position: relative;
+
+    &-content {
+      z-index: 1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -o-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      text-align: center;
+
+      h2 {
+        font-family: 'Playfair Display', serif;
+        text-transform: uppercase;
+        font-weight: 300;
+        letter-spacing: -1px;
+        transition: 700ms ease;
       }
 
-      .homepage {
-        &-content {
-           h1{
-            font-size: 3em;
-            margin-bottom : 3em;
-           }
-        }
-      }  
+      p {
+        opacity: 0.8;
+      }
     }
+
+    &-background {
+      background:url('./../../assets/images/bg-livanart4.jpg') no-repeat center center;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+      opacity: 0.4;
+    }
+  }
+
+  &-intro:hover h2 {
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  &-menu {
+    width: 100%;
+    height: 100vh;
+    background-color: #42212b;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+    &-about { grid-area: 1 / 1 / 2 / 2; }
+    &-workshop { grid-area: 1 / 2 / 2 / 3; }
+    &-shop { grid-area: 1 / 3 / 3 / 4; }
+    &-commission { grid-area: 2 / 1 / 3 / 2; }
+    &-agenda { grid-area: 2 / 2 / 3 / 3; }
+    &-gallery { grid-area: 3 / 1 / 4 / 3; }
+    &-media{ grid-area: 3 / 3 / 4 / 4; }
+
+    &-link {
+      font-family: 'Roboto', sans-serif;
+      font-size: 2em;
+      font-variant: small-caps;
+      text-transform: lowercase;
+      border: solid 2px white;
+      padding: 2px 10px 8px 10px;
+      text-shadow: 4px 4px 6px #1c1c1c;
+      background-color: transparent;
+
+      -o-transition: all 300ms ease;
+      -moz-transition: all 300ms ease;
+      -webkit-transition: all 300ms ease;
+      transition: all 300ms ease;
+
+      z-index: 1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -o-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    &-about, &-workshop, &-shop, &-commission, &-agenda, &-media, &-gallery {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    &-about-img, &-workshop-img, &-shop-img, &-commission-img, &-agenda-img, &-gallery-img, &-media-img {
+      -o-transition: all 300ms ease;
+      -moz-transition: all 300ms ease;
+      -webkit-transition: all 300ms ease;
+      transition: all 300ms ease;
+      -o-filter: grayscale(0.5);
+      -moz-filter: grayscale(0.5);
+      -webkit-filter: grayscale(0.5);
+      filter: grayscale(0.5) opacity(0.8);
+    }
+
+    &-about-img {
+      background:url('./../../assets/images/menu-about.jpg') no-repeat center center;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    &-workshop-img {
+      background:url('./../../assets/images/menu-workshop.jpg') no-repeat center center;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    &-shop-img{
+      background:url('./../../assets/images/menu-shop.jpg') no-repeat center center;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    &-commission-img {
+      background:url('./../../assets/images/menu-commission.jpg') no-repeat center center;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    &-agenda-img {
+      background:url('./../../assets/images/menu-agenda.jpg') no-repeat center center;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    &-gallery-img {
+      background:url('./../../assets/images/menu-gallery.png') no-repeat center -90px;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    &-media-img {
+      background:url('./../../assets/images/menu-media.jpg') no-repeat center center;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &-menu-about:hover &-menu-link, 
+  &-menu-workshop:hover &-menu-link, 
+  &-menu-shop:hover &-menu-link,
+  &-menu-commission:hover &-menu-link,
+  &-menu-agenda:hover &-menu-link,
+  &-menu-gallery:hover &-menu-link,
+  &-menu-media:hover &-menu-link {
+    text-shadow: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+  }
+
+  &-menu-about:hover &-menu-about-img, 
+  &-menu-workshop:hover &-menu-workshop-img, 
+  &-menu-shop:hover &-menu-shop-img,
+  &-menu-commission:hover &-menu-commission-img,
+  &-menu-agenda:hover &-menu-agenda-img,
+  &-menu-gallery:hover &-menu-gallery-img,
+  &-menu-media:hover &-menu-media-img {
+      -o-transform: scale(1.2);
+      -moz-transform: scale(1.2);
+      -webkit-transform: scale(1.2);
+      transform: scale(1.2);
+      -o-filter: none;
+      -moz-filter: none;
+      -webkit-filter: none;
+      filter: none;
+  }
+
+  &-footer {
+    background-color: #42212b;
+    font-size: 14px;
+    text-transform: lowercase;
+    font-variant: small-caps;
+    width: 100%;
+    height: 20vh;
+    text-align: center;
+
+    &-social {
+      width: 100%;
+      height: 50%;
+      display: flex;
+      justify-content: center;
+
+      ul {
+        display:flex;
+        align-items: center;
+
+        li {
+          margin: 0 1em;
+          opacity: 0.7;
+        }
+
+        li:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    &-links {
+      width: 100%;
+      height: 100%;
+      background-color: #1d1d1d;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+
+      &-searchbar {
+        width: 20%;
+        margin: 2em;
+      }
+    }
+  }
+
+  @keyframes opacityK {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes transformK {
+    from {
+      transform: none;
+    }
+    to {
+      transform: translateX(100px); 
+    }
+  }
+
+  @keyframes scrollArrow {
+    0% {
+      transform: rotate(90deg) translate(-20px, 0);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(90deg) translate(0, 0);
+      opacity: 0;
+    }
+  }  
+
 }
