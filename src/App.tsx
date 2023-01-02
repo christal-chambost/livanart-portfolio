@@ -12,15 +12,12 @@ import Header from './components/Header';
 import Contact from './pages/contact';
 import Workshop from './pages/workshop';
 import Footer from './components/Footer';
-import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
 
 function App() {
-  const parallax = useRef<IParallax>(null);
 
   return (
     <div className="app">
       <Router>
-        <Header />
         <Routes>
           <Route path="/about" element={<About />} />
           <Route path="/shop" element={<Shop />} />
@@ -28,7 +25,6 @@ function App() {
           <Route path="/workshop" element={<Workshop />} />
           <Route path="/" element={<Homepage />} />
         </Routes>
-        <Footer />
       </Router>
     </div>
   )
